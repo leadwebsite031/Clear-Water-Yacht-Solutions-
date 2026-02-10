@@ -1,232 +1,111 @@
-/* 1. THEME VARIABLES 
-   Using variables makes it easy to change the "Gold" or "Navy" across the whole site later.
-*/
 :root {
-    --navy: #0a192f;        /* Deep nautical blue */
-    --gold: #c5a059;        /* Sophisticated gold accent */
+    --navy: #0a192f;
+    --gold: #c5a059;
     --white: #ffffff;
-    --light-bg: #f4f7f6;    /* Light gray for background */
-    --slate: #8892b0;       /* Muted text color for nav */
-    --transition: 0.3s ease-in-out;
+    --light-bg: #f4f7f6;
+    --slate: #8892b0;
 }
 
-/* 2. CORE RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     background-color: var(--light-bg);
     color: #333;
-    overflow-x: hidden;
 }
 
-/* 3. HEADER & TYPOGRAPHY */
-header {
-    background: var(--navy);
-    color: var(--white);
-    padding: 3rem 1rem;
-    text-align: center;
-    border-bottom: 4px solid var(--gold);
-}
-
-header h1 {
-    font-size: 2.5rem;
-    letter-spacing: 3px;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-}
-
-header p {
-    color: var(--gold);
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-h2 {
-    color: var(--navy);
-    border-bottom: 2px solid var(--gold);
-    padding-bottom: 10px;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-}
-
-h3 {
-    color: var(--navy);
-    margin-bottom: 0.5rem;
-}
-
-/* 4. NAVIGATIONBAR
-   The "sticky" property keeps the menu at the top when scrolling.
-*/
-nav {
+/* New Found Plumbers Style Top Bar */
+.top-bar {
     background: #112240;
+    color: var(--gold);
+    font-size: 0.8rem;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.top-bar a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; }
+
+/* Navigation */
+nav {
+    background: var(--navy);
+    padding: 20px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .nav-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
 }
 
-nav a {
+.logo { font-size: 1.8rem; font-weight: 800; color: white; }
+.logo span { color: var(--gold); }
+
+.menu a {
     color: var(--slate);
     text-decoration: none;
-    padding: 18px 25px;
-    font-weight: bold;
+    margin-left: 20px;
     text-transform: uppercase;
-    font-size: 0.8rem;
-    transition: var(--transition);
-}
-
-nav a:hover, nav a.active {
-    color: var(--gold);
-    background: rgba(255,255,255,0.05);
-}
-
-/* 5. MAIN CONTENT CONTAINER */
-.container {
-    max-width: 900px;
-    margin: 2.5rem auto;
-    background: var(--white);
-    padding: 3rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border-radius: 4px;
-}
-
-/* 6. PROFILE LAYOUT (HOME PAGE) */
-.profile-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 40px;
-    align-items: start;
-}
-
-.photo-box {
-    background: #e0e6ed;
-    border: 4px solid var(--navy);
-    aspect-ratio: 3 / 4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.photo-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* 7. EXPERIENCE ITEMS (TIMELINE LOOK) */
-.exp-item {
-    margin-bottom: 2.5rem;
-    padding-left: 25px;
-    border-left: 4px solid var(--gold);
-    position: relative;
-}
-
-.vessel-tag {
+    font-weight: bold;
     font-size: 0.85rem;
-    color: var(--gold);
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-    text-transform: uppercase;
 }
 
-/* 8. BUTTONS & ACTIONS */
-.btn-group {
-    display: flex;
-    gap: 15px;
-    margin-top: 1.5rem;
+.menu a:hover, .menu a.active { color: var(--gold); }
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), url('../yacht-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 120px 20px;
+    text-align: center;
 }
 
+.hero h1 { font-size: 3.5rem; margin-bottom: 15px; }
+.hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; }
+
+/* Service Cards */
+.container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.service-card {
+    background: white;
+    padding: 40px;
+    text-align: center;
+    border-bottom: 5px solid var(--gold);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.service-card h3 { color: var(--navy); margin-bottom: 15px; }
+
+/* Buttons */
 .btn-primary {
     background: var(--gold);
     color: var(--navy);
-    padding: 12px 28px;
+    padding: 15px 30px;
     text-decoration: none;
-    border-radius: 4px;
     font-weight: bold;
-    border: 2px solid var(--gold);
-    transition: var(--transition);
     display: inline-block;
+    border-radius: 5px;
 }
 
-.btn-primary:hover {
-    background: var(--navy);
-    color: var(--gold);
-    border-color: var(--navy);
-}
+footer { background: var(--navy); color: white; text-align: center; padding: 40px; margin-top: 50px; }
 
-.btn-secondary {
-    background: transparent;
-    color: var(--navy);
-    padding: 12px 28px;
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: bold;
-    border: 2px solid var(--navy);
-    transition: var(--transition);
-    display: inline-block;
-}
-
-.btn-secondary:hover {
-    background: var(--navy);
-    color: var(--white);
-}
-
-/* 9. FOOTER */
-footer {
-    text-align: center;
-    padding: 3rem 1rem;
-    background: var(--navy);
-    color: var(--slate);
-    font-size: 0.8rem;
-    margin-top: 4rem;
-}
-
-/* 10. MOBILE RESPONSIVENESS
-   Adjusts the layout for phones so it doesn't break.
-*/
 @media (max-width: 768px) {
-    header h1 { font-size: 1.8rem; }
-    
-    .profile-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .nav-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    nav a {
-        width: 100%;
-        text-align: center;
-        padding: 12px;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    
-    .container {
-        margin: 1rem;
-        padding: 1.5rem;
-    }
-    
-    .btn-group {
-        flex-direction: column;
-    }
+    .hero h1 { font-size: 2.2rem; }
+    .nav-container { flex-direction: column; }
+    .menu { margin-top: 20px; }
 }
