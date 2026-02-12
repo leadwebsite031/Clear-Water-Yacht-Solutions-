@@ -3,79 +3,403 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Rob van Hagen</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Captain Rob van Hagen | Maritime Command</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* --- GENIUS-LEVEL ARCHITECTURE: CSS --- */
+        :root {
+            --navy: #0a192f;
+            --gold: #c5a059;
+            --white: #ffffff;
+            --glass: rgba(10, 25, 47, 0.9);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body, html {
+            height: 100%;
+            font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
+            color: var(--white);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Fixed Full Background - Never Moves */
+        .background-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(10, 25, 47, 0.5), rgba(10, 25, 47, 0.5)), 
+                        url('https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -1;
+            transform: scale(1.1); /* Prevents white edges on mobile scroll bounce */
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: var(--navy);
+            height: 90px;
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 2px solid var(--gold);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .logo span { color: var(--gold); }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li { margin-left: 30px; }
+
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: var(--transition);
+            letter-spacing: 1px;
+        }
+
+        .nav-menu a:hover { color: var(--gold); }
+
+        /* Mobile Hamburger */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.8rem;
+            color: var(--gold);
+        }
+
+        /* Sections Strategy */
+        section {
+            padding: 120px 20px 60px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content-card {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            padding: 50px;
+            border-radius: 20px;
+            max-width: 1000px;
+            width: 100%;
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            transition: var(--transition);
+        }
+
+        h1, h2 { 
+            color: var(--gold); 
+            text-transform: uppercase; 
+            margin-bottom: 25px; 
+            letter-spacing: 4px;
+        }
+
+        p { line-height: 1.9; margin-bottom: 18px; color: #d1d9e6; font-size: 1.05rem; }
+
+        /* Rates Table Architecture */
+        .rates-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+        .rates-table th, .rates-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        .rates-table th { color: var(--gold); text-transform: uppercase; font-size: 0.9rem; }
+
+        /* Form Controls */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input, .contact-form select, .contact-form textarea {
+            padding: 15px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--gold);
+            color: white;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .btn-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .submit-btn {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-whatsapp { background: #25D366; color: white; }
+        .btn-email { background: var(--gold); color: var(--navy); }
+
+        .submit-btn:hover { 
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            filter: brightness(1.1);
+        }
+
+        /* Footer & Socials */
+        footer {
+            background: var(--navy);
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 2px solid var(--gold);
+        }
+
+        .social-icons { margin-bottom: 30px; }
+
+        .social-icons a {
+            color: var(--white);
+            font-size: 2.2rem;
+            margin: 0 20px;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .social-icons a:hover { color: var(--gold); transform: scale(1.2); }
+
+        /* Mobile Responsive Perfection */
+        @media (max-width: 768px) {
+            nav { height: 70px; }
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: var(--navy);
+                width: 100%;
+                text-align: center;
+                transition: 0.5s;
+                padding: 40px 0;
+                border-bottom: 2px solid var(--gold);
+            }
+
+            .nav-menu.active { left: 0; }
+            .nav-menu li { margin: 25px 0; }
+            .hamburger { display: block; }
+            .btn-group { grid-template-columns: 1fr; }
+            .content-card { padding: 30px 20px; }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
 </head>
 <body>
+
+    <div class="background-fixed"></div>
+
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo">CAPT. <span>ROB</span></a>
-            <div class="menu">
-                <a href="index.html">Home</a>
-                <a href="experience.html">Experience</a>
-                <a href="management.html">Management</a>
-                <a href="qualifications.html">Qualifications</a>
-                <a href="objectives.html">Bio</a>
-                <a href="contact.html">Contact</a>
+            <a href="#" class="logo">CAPT. <span>ROB</span></a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#rates">Rates</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
             </div>
         </div>
     </nav>
-    <header class="hero">
-        <h1>Rob van Hagen</h1>
-        <p>Master 3000 GT | Professional Yacht Captain</p>
-    </header>
 
-    <section class="container" style="margin-top: -50px; position: relative; z-index: 10;">
-        <div class="card" style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center; border-top: 5px solid var(--gold);">
-            <div class="profile-image-area" style="flex: 1; min-width: 250px; text-align: center;">
-                <img src="captain-rob.jpg" alt="Captain Rob van Hagen" style="width: 100%; max-width: 300px; border-radius: 8px; border: 4px solid var(--navy); box-shadow: 0 10px 20px rgba(0,0,0,0.2);">
+    <section id="home">
+        <div class="content-card" style="text-align: center;">
+            <h1>Captain Rob van Hagen</h1>
+            <p style="font-size: 1.3rem; font-weight: bold; color: var(--gold); letter-spacing: 3px;">Master Mariner | Master Unlimited</p>
+            <p>Direct Command. Absolute Discretion. Global Reach.</p>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="content-card">
+            <h2>Command Services</h2>
+            <p><i class="fas fa-anchor" style="color:var(--gold)"></i> <strong>Global Vessel Delivery:</strong> Safe relocation of assets across all major oceans.</p>
+            <p><i class="fas fa-ship" style="color:var(--gold)"></i> <strong>Full Operational Command:</strong> Management of luxury yachts 50m to 100m+.</p>
+            <p><i class="fas fa-users-cog" style="color:var(--gold)"></i> <strong>Crew Leadership:</strong> High-discipline training and safety management.</p>
+            <p><i class="fas fa-clipboard-check" style="color:var(--gold)"></i> <strong>Project Consultation:</strong> Yard refits, surveys, and technical oversight.</p>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="content-card">
+            <h2>Operational Gallery</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 20px;">
+                <div style="height: 200px; border-radius:10px; background: rgba(255,255,255,0.05); border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center;">[Bridge Command]</div>
+                <div style="height: 200px; border-radius:10px; background: rgba(255,255,255,0.05); border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center;">[Offshore Navigation]</div>
+                <div style="height: 200px; border-radius:10px; background: rgba(255,255,255,0.05); border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center;">[Fleet Oversight]</div>
             </div>
-            <div class="profile-text" style="flex: 2; min-width: 300px;">
-                <h2 style="color: var(--navy); margin-bottom: 15px; font-size: 2rem;">Commanding Excellence</h2>
-                <p style="font-size: 1.1rem; color: #444; margin-bottom: 20px;">
-                    With over 30 years of maritime experience and a Master 3000 GT Unlimited license, Captain Rob van Hagen provides elite command, meticulous shipyard oversight, and seamless vessel management for the world’s most prestigious superyachts.
-                </p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 15px; background: #f8f9fa; padding: 20px; border-radius: 6px;">
-                    <div style="text-align: center;">
-                        <span style="display: block; font-size: 1.5rem; font-weight: bold; color: var(--gold);">30+</span>
-                        <small style="text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px;">Years Exp.</small>
-                    </div>
-                    <div style="text-align: center;">
-                        <span style="display: block; font-size: 1.5rem; font-weight: bold; color: var(--gold);">3000 GT</span>
-                        <small style="text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px;">Master Lic.</small>
-                    </div>
-                    <div style="text-align: center;">
-                        <span style="display: block; font-size: 1.5rem; font-weight: bold; color: var(--gold);">77m+</span>
-                        <small style="text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px;">Max Vessel</small>
-                    </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="content-card">
+            <h2>Elite Biography</h2>
+            <p>Captain Rob van Hagen represents the apex of maritime leadership. With a career spanning over two decades on the high seas, his expertise covers the full spectrum of modern yachting—from complex polar expeditions to high-society Mediterranean cruising.</p>
+            <p>His command style is rooted in the tradition of excellence and the technology of the future.</p>
+        </div>
+    </section>
+
+    <section id="rates">
+        <div class="content-card">
+            <h2>Standard Day Rates</h2>
+            <table class="rates-table">
+                <tr><th>Service Type</th><th>Daily Rate (USD)</th></tr>
+                <tr><td>Global Command / Consultation</td><td>$1,200</td></tr>
+                <tr><td>Vessel Delivery Operations</td><td>$850 + Expenses</td></tr>
+                <tr><td>Technical Refit Management</td><td>$1,000</td></tr>
+                <tr><td>Safety & ISM Auditing</td><td>$2,500 Flat Fee</td></tr>
+            </table>
+            <p style="margin-top: 25px; font-style: italic; font-size: 0.9rem;">* All rates are baseline. Long-term contracts and specific vessel profiles are subject to custom commercial agreements.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="content-card">
+            <h2>Establish Contact</h2>
+            <p>Initiate direct communication for global command availability.</p>
+            
+            <form class="contact-form" id="contactForm">
+                <input type="text" id="userName" placeholder="Full Name / Principal" required>
+                <input type="email" id="userEmail" placeholder="Official Email Address" required>
+                <select id="serviceType">
+                    <option value="Full Command">Full Command Inquiry</option>
+                    <option value="Relocation">Vessel Relocation</option>
+                    <option value="Consultancy">Consultancy</option>
+                    <option value="Urgent Manning">Urgent Manning Request</option>
+                </select>
+                <textarea id="userMessage" rows="4" placeholder="Vessel Details, Gross Tonnage, and Location..." required></textarea>
+                
+                <div class="btn-group">
+                    <button type="button" onclick="sendToWhatsApp()" class="submit-btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Garth
+                    </button>
+                    <button type="button" onclick="sendToEmail()" class="submit-btn btn-email">
+                        <i class="fas fa-envelope"></i> Email Bridge
+                    </button>
                 </div>
-            </div>
+            </form>
+            <div id="statusMsg" style="text-align:center; margin-top:15px; font-weight:bold;"></div>
         </div>
     </section>
 
-    <section class="container" style="padding-top: 40px; padding-bottom: 80px;">
-        <h3 style="text-align: center; color: var(--navy); margin-bottom: 40px; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 2px;">Professional Specializations</h3>
-        <div class="service-grid">
-            <div class="service-card" style="text-align: center; padding: 40px 20px;">
-                <div style="font-size: 3rem; margin-bottom: 20px;">⚓</div>
-                <h4 style="margin-bottom: 15px; color: var(--navy);">Global Command</h4>
-                <p>Strategic navigation and safe operations of flagship vessels across all major international cruising grounds.</p>
-            </div>
-            <div class="service-card" style="text-align: center; padding: 40px 20px;">
-                <div style="font-size: 3rem; margin-bottom: 20px;">🏗️</div>
-                <h4 style="margin-bottom: 15px; color: var(--navy);">Project Management</h4>
-                <p>Expert oversight of multi-million Euro refit periods, ensuring on-time delivery and shipyard accountability.</p>
-            </div>
-            <div class="service-card" style="text-align: center; padding: 40px 20px;">
-                <div style="font-size: 3rem; margin-bottom: 20px;">🤝</div>
-                <h4 style="margin-bottom: 15px; color: var(--navy);">Crew Leadership</h4>
-                <p>Recruiting and managing high-performance teams to deliver a 7-star service standard for Owners and Guests.</p>
-            </div>
+    <footer>
+        <div class="social-icons">
+            <a href="https://instagram.com/rob_van_hagen" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/rob_van_hagen" target="_blank"><i class="fab fa-facebook"></i></a>
         </div>
-    </section>
-
-    <footer style="background: var(--navy); color: white; padding: 40px 20px; text-align: center; margin-top: 50px;">
-        <p style="font-size: 0.9rem; color: #8892b0;">&copy; 2026 Captain Rob van Hagen | Master 3000 GT</p>
+        <p style="color: var(--gold); letter-spacing: 2px; font-weight: bold;">ROB_VAN_HAGEN@HOTMAIL.COM</p>
+        <p style="margin-top: 20px; font-size: 0.75rem; opacity: 0.5;">&copy; 2026 Captain Rob van Hagen | Master Unlimited II/2</p>
     </footer>
+
+    <script>
+        // Hamburger Control
+        function toggleMenu() {
+            document.getElementById('nav-menu').classList.toggle('active');
+        }
+
+        // Auto-Close Mobile Menu
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('nav-menu').classList.remove('active');
+            });
+        });
+
+        // WhatsApp Command
+        function sendToWhatsApp() {
+            const phone = "61434993224"; 
+            const name = document.getElementById('userName').value;
+            const email = document.getElementById('userEmail').value;
+            const type = document.getElementById('serviceType').value;
+            const msg = document.getElementById('userMessage').value;
+
+            if(!name || !email || !msg) {
+                alert("Please fill in all bridge logs.");
+                return;
+            }
+
+            const text = `⚓ *COMMAND INQUIRY*%0A*From:* ${name}%0A*Email:* ${email}%0A*Type:* ${type}%0A*Details:* ${msg}`;
+            window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+        }
+
+        // Email Command
+        function sendToEmail() {
+            const recipient = "rob_van_hagen@hotmail.com";
+            const name = document.getElementById('userName').value;
+            const email = document.getElementById('userEmail').value;
+            const type = document.getElementById('serviceType').value;
+            const msg = document.getElementById('userMessage').value;
+
+            if(!name || !email || !msg) {
+                alert("Please fill in all bridge logs.");
+                return;
+            }
+
+            const subject = encodeURIComponent(`Maritime Inquiry: ${type} - ${name}`);
+            const body = encodeURIComponent(`Captain Rob,\n\nInquiry Details:\nName: ${name}\nContact Email: ${email}\nService: ${type}\n\nMessage:\n${msg}`);
+            
+            window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+        }
+    </script>
 </body>
 </html>
