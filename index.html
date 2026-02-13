@@ -3,48 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clear Water Yacht Solutions | Elite Management</title>
+    <title>Clear Water Yacht Solutions | Maritime Excellence</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --royal-blue: #00234b;
-            --deep-navy: #000b18;
-            --gold: #c5a059;
-            --glass: rgba(0, 11, 24, 0.85);
-            --border: rgba(197, 160, 89, 0.3);
+            --royal-blue: #001a35;
+            --accent-gold: #c5a059;
+            --glass-white: rgba(255, 255, 255, 0.03);
+            --glass-navy: rgba(0, 15, 35, 0.85);
+            --border: rgba(197, 160, 89, 0.25);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--deep-navy);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--royal-blue);
             color: #fff;
-            line-height: 1.6;
             overflow-x: hidden;
+            letter-spacing: 0.5px;
         }
 
-        /* FIXED BACKGROUND - GLAZE STYLE */
-        .site-bg {
+        /* FULL PAGE FIXED BACKGROUND */
+        .vessel-bg {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(0,11,24,0.4), rgba(0,11,24,0.4)), 
-                        url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1920&q=80');
+            top: 0; left: 0; width: 100%; height: 100vh;
+            background: linear-gradient(rgba(0, 8, 20, 0.7), rgba(0, 8, 20, 0.7)), 
+                        url('https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=2500&q=80');
             background-size: cover;
             background-position: center;
-            z-index: -1;
+            z-index: -2;
         }
 
-        /* NAVIGATION */
+        /* LUXURY NAV */
         nav {
-            height: 80px;
+            height: 100px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0 5%;
-            background: var(--glass);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 8, 20, 0.9);
+            backdrop-filter: blur(20px);
             position: fixed;
             top: 0; width: 100%;
             z-index: 1000;
@@ -52,263 +52,281 @@
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            letter-spacing: 2px;
-            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            letter-spacing: 4px;
+            color: var(--accent-gold);
             text-decoration: none;
             font-weight: 700;
         }
 
-        .nav-links { display: flex; list-style: none; }
-        .nav-links li { margin-left: 30px; }
         .nav-links a {
             text-decoration: none;
-            color: #fff;
-            font-size: 0.75rem;
+            color: #f0f0f0;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: 0.3s;
-        }
-        .nav-links a:hover { color: var(--gold); }
-
-        /* IMAGE SLIDER AREA */
-        .gallery-container {
-            margin-top: 100px;
-            width: 100%;
-            height: 60vh;
-            overflow: hidden;
-            position: relative;
-            border-bottom: 2px solid var(--gold);
+            letter-spacing: 3px;
+            margin-left: 40px;
+            transition: 0.4s;
+            opacity: 0.8;
         }
 
-        .slider {
-            display: flex;
-            width: 300%; /* Adjust based on image count */
-            height: 100%;
-            animation: slide 15s infinite;
-        }
+        .nav-links a:hover { color: var(--accent-gold); opacity: 1; }
 
-        .slider img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        @keyframes slide {
-            0% { transform: translateX(0); }
-            33% { transform: translateX(-33.33%); }
-            66% { transform: translateX(-66.66%); }
-        }
-
-        /* CONTENT SECTIONS */
+        /* CONTENT ARCHITECTURE */
         section {
-            padding: 80px 5%;
+            padding: 120px 5% 60px;
+            min-height: 80vh;
             display: flex;
+            align-items: center;
             justify-content: center;
         }
 
-        .glass-card {
-            background: var(--glass);
-            backdrop-filter: blur(15px);
-            padding: 60px;
+        .hero-section { height: 100vh; text-align: center; }
+
+        .glass-panel {
+            background: var(--glass-navy);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            padding: 80px;
             width: 100%;
-            max-width: 1100px;
+            max-width: 1200px;
             border: 1px solid var(--border);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            box-shadow: 0 50px 100px rgba(0,0,0,0.8);
+            border-radius: 4px;
         }
 
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--gold);
-            margin-bottom: 30px;
-            text-align: center;
+        h1, h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--accent-gold);
+            margin-bottom: 40px;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 8px;
         }
 
-        /* MAINTENANCE TABLE */
-        .rates-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2rem; text-align: center; }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
 
-        .rates-table th {
-            text-align: left;
-            padding: 15px;
-            color: var(--gold);
-            border-bottom: 1px solid var(--gold);
-            text-transform: uppercase;
-            font-size: 0.8rem;
+        .service-card {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
         }
 
-        .rates-table td {
-            padding: 20px 15px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
+        .service-card h3 { color: var(--accent-gold); font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 15px; }
 
-        .calc-bar {
-            background: rgba(197, 160, 89, 0.1);
-            padding: 30px;
-            margin-top: 40px;
+        /* CALCULATOR */
+        .calc-wrapper {
+            background: rgba(255,255,255,0.02);
+            padding: 40px;
+            border: 1px solid var(--border);
             text-align: center;
-            border: 1px solid var(--gold);
+            margin-top: 50px;
         }
 
         .calc-input {
             background: transparent;
-            border: 1px solid var(--gold);
-            color: white;
-            padding: 10px;
-            width: 100px;
-            font-size: 1.2rem;
-            text-align: center;
-            margin: 0 15px;
-        }
-
-        .price-tag {
+            border: none;
+            border-bottom: 2px solid var(--accent-gold);
+            color: #fff;
             font-size: 2rem;
-            color: var(--gold);
-            display: block;
-            margin-top: 10px;
-            font-weight: 700;
+            width: 120px;
+            text-align: center;
+            outline: none;
+            font-family: 'Cinzel', serif;
         }
 
-        /* BUTTONS */
-        .cta-btn {
-            display: inline-block;
-            background: var(--gold);
-            color: var(--deep-navy);
-            padding: 18px 40px;
-            text-decoration: none;
-            font-weight: 700;
+        .price-display {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            font-family: 'Cinzel', serif;
+            margin: 20px 0;
+        }
+
+        /* ROLLING IMAGE BAR (ABOVE CONTACT) */
+        .rolling-gallery {
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            position: relative;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: #000;
+        }
+
+        .rolling-track {
+            display: flex;
+            width: calc(300px * 10); /* Adjust based on image count */
+            animation: scroll 30s linear infinite;
+        }
+
+        .rolling-track img {
+            width: 450px;
+            height: 350px;
+            object-fit: cover;
+            filter: grayscale(30%) brightness(70%);
+            transition: 0.5s;
+        }
+
+        .rolling-track img:hover { filter: grayscale(0%) brightness(100%); }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-450px * 5)); }
+        }
+
+        /* CONTACT BUTTON */
+        .gold-btn {
+            padding: 20px 50px;
+            background: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 30px;
-            transition: 0.3s;
+            letter-spacing: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.5s;
+            text-decoration: none;
+            display: inline-block;
         }
 
-        .cta-btn:hover {
-            background: #fff;
-            transform: translateY(-3px);
+        .gold-btn:hover {
+            background: var(--accent-gold);
+            color: #000;
+            box-shadow: 0 0 30px rgba(197, 160, 89, 0.4);
         }
 
         footer {
+            padding: 100px 5%;
             text-align: center;
-            padding: 60px;
-            background: var(--deep-navy);
-            border-top: 1px solid var(--border);
+            background: #000814;
         }
 
         @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
             .nav-links { display: none; }
-            h2 { font-size: 1.8rem; }
-            .glass-card { padding: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="site-bg"></div>
+    <div class="vessel-bg"></div>
 
     <nav>
-        <a href="#" class="logo">CLEAR WATER</a>
-        <ul class="nav-links">
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#packages">Maintenance & Packages</a></li>
-            <li><a href="#management">Skipping & Management</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <a href="#" class="logo">Clear Water</a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#maintenance">Maintenance</a>
+            <a href="#management">Management</a>
+            <a href="#contact">Contact</a>
+        </div>
     </nav>
 
-    <div class="gallery-container">
-        <div class="slider">
-            <img src="Gallery1.jpeg" alt="Yacht Exterior">
-            <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=1920&q=80" alt="Yacht Deck">
-            <img src="https://images.unsplash.com/photo-1605281317010-fe5ffe798156?auto=format&fit=crop&w=1920&q=80" alt="Yacht Interior">
+    <section class="hero-section">
+        <div style="max-width: 800px;">
+            <p style="letter-spacing: 10px; color: var(--accent-gold); margin-bottom: 20px;">ESTABLISHED 2026</p>
+            <h1>Yacht Solutions</h1>
+            <p style="font-weight: 300; opacity: 0.7; font-size: 1.2rem;">Premier Vessel Care & Management for Discerning Owners.</p>
         </div>
-    </div>
+    </section>
 
     <section id="about">
-        <div class="glass-card">
-            <h2>About Us</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
-                Clear Water Yacht Solutions delivers elite vessel management and maintenance for private owners. 
-                We combine technical expertise with a commitment to the highest aesthetic standards. 
-                Your vessel is more than a boat—it is an asset we protect with precision.
+        <div class="glass-panel">
+            <h2>The Standard</h2>
+            <p style="text-align: center; font-size: 1.2rem; line-height: 2; opacity: 0.9;">
+                Clear Water Yacht Solutions is a bespoke maritime agency providing technical oversight, high-tier maintenance, and professional vessel skipping. We operate with a "Showroom Always" philosophy, ensuring your investment is perfectly maintained and ready for immediate departure.
             </p>
         </div>
     </section>
 
-    <section id="packages">
-        <div class="glass-card">
-            <h2>Maintenance & Packages</h2>
-            <table class="rates-table">
-                <thead>
-                    <tr>
-                        <th>Service Description</th>
-                        <th>Standard</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Full Exterior Boat Washdown</td><td>Included</td></tr>
-                    <tr><td>Stainless Steel & Chrome Polishing</td><td>Included</td></tr>
-                    <tr><td>Teak Cleaning & Brightening</td><td>Included</td></tr>
-                    <tr><td>Hull Cleaning & Growth Removal</td><td>Included</td></tr>
-                    <tr><td>Gelcoat Wax & Protection</td><td>Included</td></tr>
-                    <tr><td>Engine Room Detail & Fluid Checks</td><td>Included</td></tr>
-                </tbody>
-            </table>
+    <section id="maintenance">
+        <div class="glass-panel">
+            <h2>Maintenance Packages</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>01. EXTERIOR CARE</h3>
+                    <p>Precision washdowns, stainless polishing, and teak restoration.</p>
+                </div>
+                <div class="service-card">
+                    <h3>02. TECHNICAL AUDIT</h3>
+                    <p>Engine room oversight, fluid monitoring, and systems testing.</p>
+                </div>
+                <div class="service-card">
+                    <h3>03. DETAIL POLISHING</h3>
+                    <p>Premium gelcoat wax and ceramic protection applications.</p>
+                </div>
+                <div class="service-card">
+                    <h3>04. HULL HYGIENE</h3>
+                    <p>Scheduled underwater cleaning and growth prevention.</p>
+                </div>
+            </div>
 
-            <div class="calc-bar">
-                <h3>Vessel Service Calculator</h3>
-                <p>Enter your vessel length to calculate maintenance:</p>
-                <input type="number" id="feetInput" class="calc-input" placeholder="0" oninput="calc()"> 
-                <span style="font-weight: 700;">FT</span>
-                <span class="price-tag" id="displayTotal">$0.00</span>
-                <p style="font-size: 0.8rem; opacity: 0.7;">*Billed at $4.00 per foot</p>
+            <div class="calc-wrapper">
+                <h3 style="letter-spacing: 3px; margin-bottom: 20px;">VESSEL RATE CALCULATOR</h3>
+                <input type="number" id="vesselLength" class="calc-input" placeholder="00" oninput="updatePrice()">
+                <span style="font-family: 'Cinzel'; color: var(--accent-gold);">FT</span>
+                <div class="price-display" id="totalPrice">$0</div>
+                <p style="opacity: 0.5; font-size: 0.8rem;">FIXED RATE: $4.00 / FOOT</p>
             </div>
         </div>
     </section>
 
     <section id="management">
-        <div class="glass-card">
-            <h2>Skipping & Vessel Management</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px;">
-                <div style="border-left: 3px solid var(--gold); padding-left: 20px;">
-                    <h3 style="color: var(--gold); margin-bottom: 10px;">Vessel Skipping</h3>
-                    <p>Professional delivery and day-charter captaincy. Ensure your boat is moved safely and professionally across any distance.</p>
+        <div class="glass-panel">
+            <h2>Vessel Management</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>CAPTAINCY & SKIPPING</h3>
+                    <p>Professional yacht delivery, sea trials, and local/coastal relocation services by certified masters.</p>
                 </div>
-                <div style="border-left: 3px solid var(--gold); padding-left: 20px;">
-                    <h3 style="color: var(--gold); margin-bottom: 10px;">Full Management</h3>
-                    <p>Comprehensive oversight including crew management, mechanical scheduling, and seasonal preparation.</p>
+                <div class="service-card">
+                    <h3>FULL OVERSIGHT</h3>
+                    <p>A comprehensive 365-day management plan including crew logistics and regulatory compliance.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <div class="rolling-gallery">
+        <div class="rolling-track">
+            <img src="Gallery1.jpeg" alt="Yacht Detail 1">
+            <img src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=800&q=80" alt="Yacht Detail 2">
+            <img src="https://images.unsplash.com/photo-1540946485063-a40da27545f8?auto=format&fit=crop&w=800&q=80" alt="Yacht Detail 3">
+            <img src="https://images.unsplash.com/photo-1621275471769-e6aa344546d5?auto=format&fit=crop&w=800&q=80" alt="Yacht Detail 4">
+            <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=800&q=80" alt="Yacht Detail 5">
+            <img src="Gallery1.jpeg" alt="Yacht Detail 1">
+            <img src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=800&q=80" alt="Yacht Detail 2">
+        </div>
+    </div>
+
     <section id="contact">
-        <div class="glass-card" style="text-align: center;">
-            <h2>Contact</h2>
-            <p>Ready to elevate your vessel management? Maintenance packages and skipping schedules will be discussed upon inquiry.</p>
-            <a href="https://wa.me/61434993224" class="cta-btn">
-                <i class="fab fa-whatsapp"></i> Dispatch Request
-            </a>
+        <div class="glass-panel" style="text-align: center; background: transparent; border: none; box-shadow: none;">
+            <h2>Initiate Inquiry</h2>
+            <p style="margin-bottom: 40px; opacity: 0.8;">Maintenance schedules and management fees tailored to vessel requirements.</p>
+            <a href="https://wa.me/61434993224" class="gold-btn">Secure Your Vessel</a>
         </div>
     </section>
 
     <footer>
-        <p style="color: var(--gold); letter-spacing: 2px;">CLEAR WATER YACHT SOLUTIONS</p>
-        <p style="font-size: 0.7rem; opacity: 0.5; margin-top: 20px;">&copy; 2026 Professional Yacht Management. All Rights Reserved.</p>
+        <p style="font-family: 'Cinzel'; color: var(--accent-gold); letter-spacing: 5px;">Clear Water Yacht Solutions</p>
+        <div style="margin: 20px 0; opacity: 0.5;">
+            <i class="fab fa-instagram" style="margin: 0 10px;"></i>
+            <i class="fab fa-facebook" style="margin: 0 10px;"></i>
+            <i class="fab fa-linkedin" style="margin: 0 10px;"></i>
+        </div>
+        <p style="font-size: 0.7rem; opacity: 0.3;">© 2026 CLEAR WATER MARITIME. ALL RIGHTS RESERVED.</p>
     </footer>
 
     <script>
-        function calc() {
-            const feet = document.getElementById('feetInput').value;
-            const total = feet * 4;
-            document.getElementById('displayTotal').innerText = '$' + total.toFixed(2);
+        function updatePrice() {
+            const length = document.getElementById('vesselLength').value;
+            const price = length * 4;
+            document.getElementById('totalPrice').innerText = '$' + price.toLocaleString();
         }
     </script>
 </body>
