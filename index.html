@@ -36,7 +36,7 @@
             z-index: -2;
         }
 
-        /* NAVIGATION & LOGO */
+        /* NAVIGATION */
         nav {
             height: 90px;
             display: flex;
@@ -86,10 +86,9 @@
         }
         .nav-links a:hover { color: var(--accent-gold); }
 
-        /* MOBILE MENU HAMBURGER */
         .mobile-toggle { display: none; color: var(--accent-gold); font-size: 1.5rem; cursor: pointer; }
 
-        /* HERO SECTION */
+        /* HERO */
         .hero {
             height: 100vh;
             display: flex;
@@ -115,14 +114,12 @@
         .glass-panel {
             background: var(--glass-navy);
             backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
             padding: clamp(30px, 5vw, 80px);
             width: 100%;
             max-width: 1300px;
             margin: 0 auto;
             border: 1px solid var(--border);
             border-radius: 2px;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.6);
         }
 
         h2 {
@@ -134,46 +131,42 @@
             letter-spacing: 6px;
         }
 
-        /* ROLLING GALLERY BAR */
+        /* ROLLING GALLERY - PLACED BEFORE CONTACT */
         .rolling-bar {
             width: 100%;
-            height: 350px;
+            height: 400px;
             overflow: hidden;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.5);
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
             position: relative;
-            margin: 60px 0;
+            margin: 80px 0;
         }
 
         .rolling-track {
             display: flex;
-            width: calc(450px * 12); 
-            animation: slideScroll 35s linear infinite;
+            width: calc(500px * 10); /* Adjust based on image count */
+            animation: slideScroll 30s linear infinite;
         }
 
         .rolling-track img {
-            width: 450px;
-            height: 350px;
+            width: 500px;
+            height: 400px;
             object-fit: cover;
-            filter: brightness(70%);
-            transition: 0.5s;
+            filter: brightness(80%);
             border-right: 1px solid var(--border);
-            /* Fallback in case image is missing: */
-            background: #000; 
         }
 
         @keyframes slideScroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-450px * 6)); }
+            100% { transform: translateX(calc(-500px * 5)); }
         }
 
-        /* GRID CONTENT */
+        /* CALCULATOR & GRID */
         .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
-            margin-bottom: 40px;
         }
 
         .info-item h3 {
@@ -186,7 +179,6 @@
             letter-spacing: 2px;
         }
 
-        /* CALCULATOR */
         .calc-box {
             background: rgba(197, 160, 89, 0.05);
             padding: 40px;
@@ -224,7 +216,11 @@
             letter-spacing: 5px;
             text-transform: uppercase;
             transition: 0.5s;
-            margin-top: 20px;
+        }
+
+        .btn-luxury:hover {
+            background: var(--accent-gold);
+            color: #000;
         }
 
         footer {
@@ -235,16 +231,7 @@
         }
 
         @media (max-width: 900px) {
-            .nav-links {
-                display: none; 
-                position: absolute;
-                top: 90px; left: 0; width: 100%;
-                background: var(--glass-navy);
-                flex-direction: column;
-                padding: 40px 0;
-                text-align: center;
-                border-bottom: 1px solid var(--border);
-            }
+            .nav-links { display: none; position: absolute; top: 90px; left: 0; width: 100%; background: var(--glass-navy); flex-direction: column; padding: 40px 0; text-align: center; }
             .nav-links.active { display: flex; }
             .nav-links a { margin: 15px 0; font-size: 1rem; margin-left: 0; }
             .mobile-toggle { display: block; }
@@ -266,8 +253,8 @@
         <div class="mobile-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         <ul class="nav-links" id="navLinks">
             <li><a href="#about">About us</a></li>
-            <li><a href="#maintenance">Maintenance & Packages</a></li>
-            <li><a href="#management">Skipping & Management</a></li>
+            <li><a href="#maintenance">Maintenance</a></li>
+            <li><a href="#management">Management</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -285,7 +272,11 @@
             <div class="info-grid">
                 <div class="info-item">
                     <h3>Technical Mastery</h3>
-                    <p>Deep-system mechanical audits and fluid analysis.</p>
+                    <p>Deep-system mechanical audits and fluid analysis to ensure zero-fail ocean operations.</p>
+                </div>
+                <div class="info-item">
+                    <h3>Aesthetic Integrity</h3>
+                    <p>Gelcoat preservation and high-lustre stainless polishing to maintain showroom condition.</p>
                 </div>
             </div>
         </div>
@@ -293,25 +284,23 @@
 
     <div class="rolling-bar">
         <div class="rolling-track">
-            <img src="2ec1c3ae-a126-4e6e-b9b9-d5a0df221835.jfif" alt="Vessel Image">
-            <img src="2ec1c3ae-a126-4e6e-b9b9-d5a0df221835.jfif" alt="Vessel Image">
-            <img src="2ec1c3ae-a126-4e6e-b9b9-d5a0df221835.jfif" alt="Vessel Image">
-            <img src="2ec1c3ae-a126-4e6e-b9b9-d5a0df221835.jfif" alt="Vessel Image">
-            <img src="2ec1c3ae-a126-4e6e-b9b9-d5a0df221835.jfif" alt="Vessel Image">
-            <img src="2ec1c3ae-a126-4e6e-b9b9-d5a0df221835.jfif" alt="Vessel Image">
-            
-            <img src="2ec1c3ae-a126-4e6e-b9b9-d5a0df221835.jfif" alt="Vessel Image">
-            <img src="2ec1c3ae-a126-4e6e-b9b9-d5a0df221835.jfif" alt="Vessel Image">
-            <img src="2ec1c3ae-a126-4e6e-b9b9-d5a0df221835.jfif" alt="Vessel Image">
-            <img src="2ec1c3ae-a126-4e6e-b9b9-d5a0df221835.jfif" alt="Vessel Image">
-            <img src="2ec1c3ae-a126-4e6e-b9b9-d5a0df221835.jfif" alt="Vessel Image">
-            <img src="2ec1c3ae-a126-4e6e-b9b9-d5a0df221835.jfif" alt="Vessel Image">
+            <img src="2ec1c3ae-a126-4e6e-b9b9-d5a0df221835.jfif" alt="Yacht Solution 1">
+            <img src="2ec1c3ae-a126-4e6e-b9b9-d5a0df221835.jfif" alt="Yacht Solution 2">
+            <img src="2ec1c3ae-a126-4e6e-b9b9-d5a0df221835.jfif" alt="Yacht Solution 3">
+            <img src="2ec1c3ae-a126-4e6e-b9b9-d5a0df221835.jfif" alt="Yacht Solution 4">
+            <img src="2ec1c3ae-a126-4e6e-b9b9-d5a0df221835.jfif" alt="Yacht Solution 5">
+            <img src="2ec1c3ae-a126-4e6e-b9b9-d5a0df221835.jfif" alt="Yacht Solution 1">
+            <img src="2ec1c3ae-a126-4e6e-b9b9-d5a0df221835.jfif" alt="Yacht Solution 2">
+            <img src="2ec1c3ae-a126-4e6e-b9b9-d5a0df221835.jfif" alt="Yacht Solution 3">
+            <img src="2ec1c3ae-a126-4e6e-b9b9-d5a0df221835.jfif" alt="Yacht Solution 4">
+            <img src="2ec1c3ae-a126-4e6e-b9b9-d5a0df221835.jfif" alt="Yacht Solution 5">
         </div>
     </div>
 
     <section id="contact">
-        <div style="text-align: center;">
+        <div class="glass-panel" style="text-align: center;">
             <h2 style="margin-bottom: 20px;">Secure Your Vessel</h2>
+            <p style="max-width: 600px; margin: 0 auto 40px; opacity: 0.7;">Bespoke maintenance packages and management contracts discussed upon request.</p>
             <a href="https://wa.me/61434993224" class="btn-luxury">Initiate Command</a>
         </div>
     </section>
