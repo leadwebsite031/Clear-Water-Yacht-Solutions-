@@ -29,7 +29,7 @@
             letter-spacing: -0.01em;
         }
 
-        /* NAVIGATION - MINIMALIST LUXURY */
+        /* NAVIGATION */
         nav {
             height: 90px;
             display: flex;
@@ -67,7 +67,7 @@
         }
         .nav-links a:hover { opacity: 1; color: var(--marine-red); }
 
-        /* HERO - FULL CINEMATIC */
+        /* HERO */
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(0, 21, 41, 0.6), rgba(0, 21, 41, 0.6)), 
@@ -124,49 +124,61 @@
         .grid-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
         .grid-card h3 { font-family: 'Cinzel', serif; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 15px; color: var(--marine-navy); }
 
-        /* SLIDER - REFINED */
+        /* SLIDER */
         .slider-wrap { width: 100%; height: 600px; position: relative; overflow: hidden; }
         .slider-track { display: flex; height: 100%; transition: var(--transition); }
         .slide { min-width: 100%; height: 100%; }
         .slide img { width: 100%; height: 100%; object-fit: cover; }
         .slider-controls { position: absolute; bottom: 40px; right: 40px; display: flex; gap: 10px; }
-        .s-btn { width: 60px; height: 60px; border: 1px solid white; background: transparent; color: white; cursor: pointer; transition: var(--transition); }
+        .s-btn { width: 60px; height: 60px; border: 1px solid white; background: transparent; color: white; cursor: pointer; transition: var(--transition); display: flex; align-items: center; justify-content: center; }
         .s-btn:hover { background: white; color: black; }
 
-        /* CALCULATOR - MINIMALIST */
+        /* CALCULATOR - UPDATED TO $4/SQFT */
         .calculator-area {
             grid-column: 1 / span 2;
             background: var(--marine-navy);
             padding: 100px;
             color: white;
             text-align: center;
+            border-radius: 4px;
         }
         .calc-inputs { display: flex; justify-content: center; gap: 60px; margin: 50px 0; }
         .calc-field input {
-            background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.3);
-            color: var(--marine-red); font-family: 'Cinzel', serif; font-size: 4rem; width: 200px; text-align: center; outline: none;
+            background: transparent; border: none; border-bottom: 2px solid var(--marine-red);
+            color: var(--marine-white); font-family: 'Cinzel', serif; font-size: clamp(3rem, 6vw, 5rem); width: 220px; text-align: center; outline: none;
+            transition: var(--transition);
         }
-        .calc-field label { display: block; letter-spacing: 4px; font-size: 0.7rem; opacity: 0.6; }
-        .result-label { font-family: 'Cinzel', serif; font-size: 6rem; color: white; }
+        .calc-field input:focus { border-bottom-color: var(--accent-gold); }
+        .calc-field label { display: block; letter-spacing: 4px; font-size: 0.8rem; opacity: 0.6; margin-bottom: 10px; }
+        .result-label { font-family: 'Cinzel', serif; font-size: clamp(4rem, 10vw, 8rem); color: var(--marine-red); font-weight: 700; }
 
-        /* CONTACT FORM - BOUTIQUE STYLE */
+        /* ENGAGING CONTACT FORM */
         #contact {
             grid-template-columns: 1fr;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('e819aca1-5bd2-43fc-a7fe-72a1390c8635.jfif');
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('e819aca1-5bd2-43fc-a7fe-72a1390c8635.jfif');
             background-size: cover;
             background-attachment: fixed;
             color: white;
         }
         .boutique-form {
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 850px;
+            margin: 40px auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 25px;
+            padding: 50px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(15px);
         }
+        .form-input-group { position: relative; text-align: left; }
+        .form-input-group label { font-size: 0.65rem; letter-spacing: 2px; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 8px; display: block; }
         .boutique-form input, .boutique-form select, .boutique-form textarea {
-            padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; outline: none; font-family: 'Inter';
+            width: 100%; padding: 18px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); color: white; outline: none; font-family: 'Inter'; transition: 0.3s;
+        }
+        .boutique-form input:focus, .boutique-form select:focus, .boutique-form textarea:focus {
+            background: rgba(255,255,255,0.15); border-color: var(--marine-red);
         }
         .full-w { grid-column: 1 / span 2; }
         .btn-send {
@@ -180,25 +192,28 @@
             font-weight: 700;
             cursor: pointer;
             transition: var(--transition);
+            display: flex; align-items: center; justify-content: center; gap: 15px;
         }
-        .btn-send:hover { background: white; color: var(--marine-red); }
+        .btn-send:hover { background: white; color: var(--marine-red); transform: scale(1.02); }
 
         .email-link {
             color: white;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 1rem;
             letter-spacing: 2px;
-            opacity: 0.6;
+            opacity: 0.8;
             transition: var(--transition);
+            border-bottom: 1px solid transparent;
         }
-        .email-link:hover { opacity: 1; color: var(--marine-red); }
+        .email-link:hover { opacity: 1; border-bottom: 1px solid var(--marine-red); }
 
-        footer { padding: 80px 10%; background: #000; color: white; text-align: space-between; display: flex; font-size: 0.7rem; letter-spacing: 2px; opacity: 0.5; }
+        footer { padding: 80px 10%; background: #000; color: white; display: flex; justify-content: space-between; font-size: 0.7rem; letter-spacing: 2px; opacity: 0.5; }
 
         @media (max-width: 1000px) {
             section { grid-template-columns: 1fr; padding: 100px 5%; }
-            .boutique-form { grid-template-columns: 1fr; }
+            .boutique-form { grid-template-columns: 1fr; padding: 30px; }
             .full-w { grid-column: auto; }
+            .calc-inputs { flex-direction: column; gap: 30px; }
         }
     </style>
 </head>
@@ -220,7 +235,7 @@
     <div class="hero">
         <span>Est. Maritime Excellence</span>
         <h1>UNCOMPROMISING<br>VESSEL CARE</h1>
-        <p style="max-width: 600px; opacity: 0.8; font-weight: 200; font-size: 1.2rem;">Precision-engineered maintenance and delivery protocols for the world's most prestigious maritime assets.</p>
+        <p style="max-width: 600px; opacity: 0.8; font-weight: 200; font-size: 1.2rem;">Precision-engineered maintenance and delivery protocols for prestigious maritime assets.</p>
     </div>
 
     <section id="about">
@@ -270,36 +285,71 @@
         </div>
 
         <div class="calculator-area">
-            <h2 style="color: white; font-size: 1.5rem; letter-spacing: 5px;">SERVICE VALUATION</h2>
+            <h2 style="color: white; font-size: 1.5rem; letter-spacing: 5px; margin-bottom: 10px;">LIVE VALUATION</h2>
+            <p style="opacity: 0.5; font-size: 0.8rem; margin-bottom: 40px; letter-spacing: 2px;">CALCULATED AT $4.00 PER SQFT</p>
             <div class="calc-inputs">
                 <div class="calc-field">
-                    <label>LENGTH (FT)</label>
-                    <input type="number" id="l" value="0" oninput="calc()">
+                    <label>VESSEL LENGTH (FT)</label>
+                    <input type="number" id="l" placeholder="0" oninput="calc()">
                 </div>
                 <div class="calc-field">
-                    <label>WIDTH (FT)</label>
-                    <input type="number" id="w" value="0" oninput="calc()">
+                    <label>VESSEL WIDTH (FT)</label>
+                    <input type="number" id="w" placeholder="0" oninput="calc()">
                 </div>
             </div>
             <div class="result-label" id="res">$0</div>
-            <p style="opacity: 0.4; letter-spacing: 2px; font-size: 0.7rem;">BASE ESTIMATE • SQUARE FOOTAGE PROTOCOL</p>
+            <p style="opacity: 0.4; letter-spacing: 2px; font-size: 0.7rem; margin-top: 20px;">*PRELIMINARY ESTIMATE SUBJECT TO ON-SITE AUDIT</p>
+        </div>
+    </section>
+
+    <section id="management">
+        <div class="section-content">
+            <h2>Command &<br>Logistics</h2>
+            <p>Professional delivery and oversight management for coastal and offshore transits.</p>
+            <div class="grid-card">
+                <h3>Vessel Delivery</h3>
+                <p style="font-size: 0.8rem;">Full passage planning, weather routing, and certified skipper oversight.</p>
+            </div>
+        </div>
+        <div class="section-content">
+             <div class="grid-card">
+                <h3>Owner Liaison</h3>
+                <p style="font-size: 0.8rem;">Acting as technical representative for shipyard periods and insurance surveys.</p>
+            </div>
         </div>
     </section>
 
     <section id="contact">
         <div class="section-content">
-            <h2 style="color: white;">Request<br>Consultation</h2>
+            <h2 style="color: white; margin-bottom: 10px;">Initiate Consultation</h2>
+            <p style="color: var(--accent-gold); letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 40px;">DIRECT BRIDGE COMMAND</p>
+            
             <div class="boutique-form">
-                <input type="text" id="name" placeholder="VESSEL NAME / OWNER">
-                <select id="service">
-                    <option>MAINTENANCE PACKAGE</option>
-                    <option>VESSEL MANAGEMENT</option>
-                    <option>SKIPPER DELIVERY</option>
-                </select>
-                <textarea id="msg" class="full-w" placeholder="SPECIFIC REQUIREMENTS"></textarea>
-                <button class="btn-send" onclick="wa()">Initiate via WhatsApp</button>
+                <div class="form-input-group">
+                    <label>Vessel Identity</label>
+                    <input type="text" id="name" placeholder="E.G. 'MY ODYSSEY' / OWNER NAME">
+                </div>
+                <div class="form-input-group">
+                    <label>Required Service</label>
+                    <select id="service">
+                        <option>MAINTENANCE PACKAGE</option>
+                        <option>TECHNICAL GLAZING</option>
+                        <option>VESSEL MANAGEMENT</option>
+                        <option>SKIPPER DELIVERY</option>
+                    </select>
+                </div>
+                <div class="form-input-group full-w">
+                    <label>Mission Specifics</label>
+                    <textarea id="msg" placeholder="DESCRIBE THE SCOPE OF WORK..."></textarea>
+                </div>
+                <button class="btn-send" onclick="wa()">
+                    <span>Send Command via WhatsApp</span>
+                    <i class="fab fa-whatsapp" style="font-size: 1.4rem;"></i>
+                </button>
             </div>
-            <div style="margin-top: 40px;">
+            
+            <div style="margin-top: 60px;">
+                <p style="font-size: 0.7rem; opacity: 0.5; letter-spacing: 2px; margin-bottom: 15px;">SECURE CHANNEL EMAIL</p>
                 <a href="mailto:rztvanhagen@gmail.com" class="email-link">rztvanhagen@gmail.com</a>
             </div>
         </div>
@@ -307,10 +357,11 @@
 
     <footer>
         <div>© 2026 CLEAR WATER YACHT SOLUTIONS</div>
-        <div style="margin-left: auto;">PRECISION MARITIME OVERSIGHT</div>
+        <div>PRECISION MARITIME OVERSIGHT</div>
     </footer>
 
     <script>
+        // SLIDER LOGIC
         let idx = 0;
         function move(d) {
             const t = document.getElementById('track');
@@ -318,17 +369,25 @@
             t.style.transform = `translateX(-${idx * 100}%)`;
         }
 
+        // CORRECTED $4/SQFT CALCULATION
         function calc() {
-            const l = document.getElementById('l').value || 0;
-            const w = document.getElementById('w').value || 0;
-            document.getElementById('res').innerText = '$' + (l * w * 0.5).toLocaleString();
+            const l = parseFloat(document.getElementById('l').value) || 0;
+            const w = parseFloat(document.getElementById('w').value) || 0;
+            const rate = 4; // Your specified $4.00 price
+            const total = l * w * rate;
+            
+            document.getElementById('res').innerText = '$' + total.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
         }
 
+        // WHATSAPP LOGIC
         function wa() {
             const n = document.getElementById('name').value;
             const s = document.getElementById('service').value;
             const m = document.getElementById('msg').value;
-            const text = `*Clear Water Yacht Solutions*%0A*Vessel:* ${n}%0A*Service:* ${s}%0A*Notes:* ${m}`;
+            const l = document.getElementById('l').value || "N/A";
+            const w = document.getElementById('w').value || "N/A";
+            
+            const text = `*Clear Water Yacht Solutions*%0A*--------------------------*%0A*Vessel:* ${n}%0A*Service:* ${s}%0A*Dimensions:* ${l}' x ${w}'%0A*Notes:* ${m}`;
             window.open(`https://wa.me/61434993224?text=${text}`, '_blank');
         }
     </script>
