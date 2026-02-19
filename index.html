@@ -8,12 +8,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Marineaglaze Palette */
             --marine-navy: #002d5b;
             --marine-red: #e31e24;
             --marine-white: #ffffff;
             --marine-gray: #f2f2f2;
-            --accent-gold: #c5a059; /* Kept for luxury highlights */
+            --accent-gold: #c5a059;
             --border-light: rgba(0, 45, 91, 0.1);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,7 +25,7 @@
             line-height: 1.6;
         }
 
-        /* NAVIGATION - Marineaglaze Style */
+        /* NAVIGATION */
         nav {
             height: 100px;
             display: flex;
@@ -152,7 +151,7 @@
             width: 50px; height: 50px; cursor: pointer; z-index: 10;
         }
 
-        /* CALCULATOR - L x W */
+        /* CALCULATOR */
         .calc-box {
             background: var(--marine-navy);
             color: white;
@@ -181,10 +180,40 @@
         }
         .total-price { font-size: 4rem; color: var(--marine-red); font-family: 'Cinzel', serif; margin: 20px 0; }
 
-        /* BUTTONS */
+        /* CONTACT FORM & SECTION */
+        #contact {
+            background: linear-gradient(rgba(0, 45, 91, 0.9), rgba(0, 45, 91, 0.9)), 
+                        url('e819aca1-5bd2-43fc-a7fe-72a1390c8635.jfif');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+        }
+        #contact h2 { color: white; }
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; color: var(--accent-gold); }
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            font-family: 'Inter', sans-serif;
+            color: var(--marine-navy);
+        }
+        textarea.form-control { height: 100px; resize: none; }
+
         .btn-luxury {
             display: inline-block;
-            padding: 20px 50px;
+            width: 100%;
+            padding: 20px;
             background: var(--marine-red);
             color: white;
             text-decoration: none;
@@ -194,12 +223,13 @@
             transition: 0.3s;
             border: none;
             cursor: pointer;
+            font-family: 'Inter', sans-serif;
         }
-        .btn-luxury:hover { background: var(--marine-navy); transform: translateY(-3px); }
+        .btn-luxury:hover { background: white; color: var(--marine-red); }
 
         footer {
             padding: 60px;
-            background: var(--marine-navy);
+            background: #001a35;
             color: white;
             text-align: center;
         }
@@ -219,10 +249,6 @@
             <li><a href="#maintenance" onclick="toggleMenu()">Maintenance & Packages</a></li>
             <li><a href="#management" onclick="toggleMenu()">Skipping & Management</a></li>
             <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-            </div>
         </ul>
     </nav>
 
@@ -244,7 +270,7 @@
             </div>
             <div class="info-item">
                 <h3>Technical Mastery</h3>
-                <p>Deep-system audits, fluid analysis, and specialized polymer coatings to maintain vessel showroom condition in harsh marine environments.</p>
+                <p>Deep-system audits, fluid analysis, and specialized polymer coatings to maintain vessel showroom condition.</p>
             </div>
         </div>
     </section>
@@ -258,11 +284,7 @@
             </div>
             <div class="info-item">
                 <h3>Marina Management</h3>
-                <p>Former Marina Attendant at JLL. Expert in berthing logistics, WHS compliance, and vessel security.</p>
-            </div>
-            <div class="info-item">
-                <h3>Shipyard Logistics</h3>
-                <p>Extensive history in tender operations and shipyard labor at the Royal Sydney Yacht Squadron.</p>
+                <p>Former Marina Attendant at JLL. Expert in berthing logistics and vessel security.</p>
             </div>
         </div>
         
@@ -281,17 +303,6 @@
 
     <section id="maintenance">
         <h2>Precision Care</h2>
-        <div class="info-grid">
-            <div class="info-item">
-                <h3>Exterior Restoration</h3>
-                <p>Machine polishing, teak conditioning, and brightwork oxidation removal.</p>
-            </div>
-            <div class="info-item">
-                <h3>Engine Room</h3>
-                <p>Mechanical cycle testing, leak detection, and technical detailing.</p>
-            </div>
-        </div>
-
         <div class="calc-box">
             <h3 style="color: white; margin-bottom: 30px;">SERVICE VALUATION CALCULATOR</h3>
             <div class="calc-flex">
@@ -305,7 +316,7 @@
                 </div>
             </div>
             <div class="total-price" id="resPrice">$0</div>
-            <p style="opacity: 0.7;">ESTIMATED QUOTE BASED ON SQUARE FOOTAGE (Rate: $0.50/sqft)</p>
+            <p style="opacity: 0.7;">ESTIMATED QUOTE BASED ON SQFT (Rate: $0.50/sqft)</p>
         </div>
     </section>
 
@@ -314,7 +325,7 @@
         <div class="info-grid">
             <div class="info-item">
                 <h3>Professional Delivery</h3>
-                <p>Certified skippers for coastal and offshore transits. Full passage planning and weather routing included.</p>
+                <p>Certified skippers for coastal and offshore transits. Full passage planning included.</p>
             </div>
             <div class="info-item">
                 <h3>Owner Liaison</h3>
@@ -323,18 +334,33 @@
         </div>
     </section>
 
-    <section id="contact" style="text-align: center;">
-        <h2>Contact the Bridge</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 40px;">Ready to initiate vessel oversight? Send a direct enquiry below.</p>
-        
-        <button onclick="sendMail()" class="btn-luxury">Email Rob van Hagen</button>
-        
-        <p style="margin-top: 30px; font-weight: 700; font-size: 1.1rem;">rztvanhagen@gmail.com</p>
+    <section id="contact">
+        <h2 style="text-align: center;">Initiate Command</h2>
+        <div class="contact-container">
+            <div class="form-group">
+                <label>Vessel Name / Owner</label>
+                <input type="text" id="clientName" class="form-control" placeholder="Enter name">
+            </div>
+            <div class="form-group">
+                <label>Inquiry Type</label>
+                <select id="inquiryType" class="form-control">
+                    <option>Maintenance Package</option>
+                    <option>Vessel Management</option>
+                    <option>Skipper Delivery</option>
+                    <option>General Inquiry</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Message Details</label>
+                <textarea id="clientMsg" class="form-control" placeholder="How can we assist?"></textarea>
+            </div>
+            <button onclick="sendWhatsApp()" class="btn-luxury">Send via WhatsApp <i class="fab fa-whatsapp"></i></button>
+            <p style="margin-top: 20px; text-align: center; font-size: 0.8rem; opacity: 0.8;">Or email: rztvanhagen@gmail.com</p>
+        </div>
     </section>
 
     <footer>
         <p>© 2026 CLEAR WATER YACHT SOLUTIONS. ALL RIGHTS RESERVED.</p>
-        <p style="font-size: 0.7rem; opacity: 0.6; margin-top: 10px;">PRECISION MARITIME OVERSIGHT</p>
     </footer>
 
     <script>
@@ -350,7 +376,6 @@
         function doCalc() {
             const l = parseFloat(document.getElementById('vLength').value) || 0;
             const w = parseFloat(document.getElementById('vWidth').value) || 0;
-            // SqFt calculation at a $0.50 rate
             const total = (l * w) * 0.5;
             document.getElementById('resPrice').innerText = '$' + total.toLocaleString();
         }
@@ -359,11 +384,14 @@
             document.getElementById('navLinks').classList.toggle('active');
         }
 
-        function sendMail() {
-            const email = "rztvanhagen@gmail.com";
-            const subject = encodeURIComponent("Website Enquiry: Yacht Solutions");
-            const body = encodeURIComponent("Hi Rob,\n\nI'm contacting you from the Clear Water website regarding my vessel.");
-            window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+        function sendWhatsApp() {
+            const name = document.getElementById('clientName').value;
+            const type = document.getElementById('inquiryType').value;
+            const msg = document.getElementById('clientMsg').value;
+            const phone = "61434993224";
+            
+            const text = `*Clear Water Inquiry*%0A*From:* ${name}%0A*Service:* ${type}%0A*Details:* ${msg}`;
+            window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
         }
     </script>
 </body>
