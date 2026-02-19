@@ -42,7 +42,7 @@
             z-index: 1000;
             border-bottom: 1px solid #eee;
         }
-        .logo-group { display: flex; align-items: center; gap: 20px; text-decoration: none; }
+        .logo-group { display: flex; align-items: center; gap: 20px; text-decoration: none; z-index: 1001; }
         .logo-img { height: 60px; width: auto; filter: grayscale(1); transition: var(--transition); }
         .logo-group:hover .logo-img { filter: grayscale(0); }
         .logo-text {
@@ -66,6 +66,23 @@
             opacity: 0.6;
         }
         .nav-links a:hover { opacity: 1; color: var(--marine-red); }
+
+        /* HAMBURGER STYLES */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+            background: none;
+            border: none;
+            padding: 10px;
+        }
+        .hamburger div {
+            width: 25px;
+            height: 2px;
+            background-color: var(--marine-navy);
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
 
         /* HERO */
         .hero {
@@ -133,7 +150,7 @@
         .s-btn { width: 60px; height: 60px; border: 1px solid white; background: transparent; color: white; cursor: pointer; transition: var(--transition); display: flex; align-items: center; justify-content: center; }
         .s-btn:hover { background: white; color: black; }
 
-        /* CALCULATOR - UPDATED TO $4/SQFT */
+        /* CALCULATOR */
         .calculator-area {
             grid-column: 1 / span 2;
             background: var(--marine-navy);
@@ -152,7 +169,7 @@
         .calc-field label { display: block; letter-spacing: 4px; font-size: 0.8rem; opacity: 0.6; margin-bottom: 10px; }
         .result-label { font-family: 'Cinzel', serif; font-size: clamp(4rem, 10vw, 8rem); color: var(--marine-red); font-weight: 700; }
 
-        /* ENGAGING CONTACT FORM */
+        /* CONTACT FORM */
         #contact {
             grid-template-columns: 1fr;
             text-align: center;
@@ -209,11 +226,41 @@
 
         footer { padding: 80px 10%; background: #000; color: white; display: flex; justify-content: space-between; font-size: 0.7rem; letter-spacing: 2px; opacity: 0.5; }
 
+        /* RESPONSIVE OVERRIDES */
         @media (max-width: 1000px) {
-            section { grid-template-columns: 1fr; padding: 100px 5%; }
-            .boutique-form { grid-template-columns: 1fr; padding: 30px; }
+            section { grid-template-columns: 1fr; padding: 100px 5%; gap: 50px; }
+            .section-content h2 { font-size: 2.2rem; }
+            .premium-grid { grid-template-columns: 1fr; }
+            .calculator-area { padding: 60px 20px; }
+            .calc-inputs { flex-direction: column; gap: 30px; align-items: center; }
+            .calc-field input { font-size: 3rem; width: 100%; }
+            .boutique-form { grid-template-columns: 1fr; padding: 30px 15px; }
             .full-w { grid-column: auto; }
-            .calc-inputs { flex-direction: column; gap: 30px; }
+            .hero { padding: 0 5%; text-align: center; }
+            .hero h1 { font-size: 3.5rem; }
+            footer { flex-direction: column; gap: 20px; text-align: center; }
+
+            /* MOBILE MENU LOGIC */
+            .hamburger { display: block; }
+            .nav-links {
+                position: fixed;
+                right: -100%;
+                top: 0;
+                height: 100vh;
+                width: 80%;
+                background: white;
+                flex-direction: column;
+                justify-content: center;
+                transition: 0.5s;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+            }
+            .nav-links.active { right: 0; }
+            .nav-links a { margin: 20px 0; font-size: 1rem; }
+            
+            /* Toggle animation */
+            .toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
+            .toggle .line2 { opacity: 0; }
+            .toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
         }
     </style>
 </head>
@@ -224,12 +271,17 @@
             <img src="94f6c472-6aa5-447c-95f2-3d75d1f19db6.jfif" alt="Logo" class="logo-img">
             <div class="logo-text">CLEAR WATER<br><span style="font-size: 0.6rem; color: var(--marine-red);">YACHT SOLUTIONS</span></div>
         </a>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#maintenance">Maintenance</a></li>
-            <li><a href="#management">Management</a></li>
-            <li><a href="#contact">Contact</a></li>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about" onclick="toggleMenu()">About</a></li>
+            <li><a href="#maintenance" onclick="toggleMenu()">Maintenance</a></li>
+            <li><a href="#management" onclick="toggleMenu()">Management</a></li>
+            <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
         </ul>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </button>
     </nav>
 
     <div class="hero">
@@ -267,7 +319,7 @@
     </section>
 
     <section id="maintenance" style="display: block;">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 100px; margin-bottom: 100px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 100px; margin-bottom: 100px;" class="premium-grid">
             <div class="section-content">
                 <h2>Technical<br>detailing</h2>
                 <p>From engine room audits to polymer glazing, we ensure your vessel remains in showroom condition through every season.</p>
@@ -361,6 +413,16 @@
     </footer>
 
     <script>
+        // MOBILE MENU TOGGLE
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            const burger = document.getElementById('hamburger');
+            if(window.innerWidth <= 1000) {
+                nav.classList.toggle('active');
+                burger.classList.toggle('toggle');
+            }
+        }
+
         // SLIDER LOGIC
         let idx = 0;
         function move(d) {
@@ -373,10 +435,9 @@
         function calc() {
             const l = parseFloat(document.getElementById('l').value) || 0;
             const w = parseFloat(document.getElementById('w').value) || 0;
-            const rate = 4; // Your specified $4.00 price
+            const rate = 4; 
             const total = l * w * rate;
-            
-            document.getElementById('res').innerText = '$' + total.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            document.getElementById('res').innerText = '$' + total.toLocaleString();
         }
 
         // WHATSAPP LOGIC
@@ -386,8 +447,7 @@
             const m = document.getElementById('msg').value;
             const l = document.getElementById('l').value || "N/A";
             const w = document.getElementById('w').value || "N/A";
-            
-            const text = `*Clear Water Yacht Solutions*%0A*--------------------------*%0A*Vessel:* ${n}%0A*Service:* ${s}%0A*Dimensions:* ${l}' x ${w}'%0A*Notes:* ${m}`;
+            const text = `*Clear Water Yacht Solutions*%0A*Vessel:* ${n}%0A*Service:* ${s}%0A*Size:* ${l}x${w}%0A*Notes:* ${m}`;
             window.open(`https://wa.me/61434993224?text=${text}`, '_blank');
         }
     </script>
